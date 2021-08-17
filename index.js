@@ -1,3 +1,4 @@
+const URL = "https://dog.ceo/api/breeds/image"
 
 class Turno {
     constructor(propietario, mascota, consulta, date) {
@@ -56,6 +57,7 @@ function eliminar(index) {
 //Guardar al hacer click 
 $("#boton_agregar").click((e) => {
     if ($("#propietario").val() != "" && $("#mascota").val() != "" && $("#consulta").val() != "") {
+        swal("Excelente!", "Agregaste un nuevo cliente!", "success");
         guardar(e)
     }
 });
@@ -84,3 +86,22 @@ $("#titulo").css("color", "#2E86C1")
     .delay(1000)  
     .slideDown(2000)
     
+//////AJAX///////
+$("#mostrarFotos").click(()=> {
+    console.log("entro2")
+    $.get(`${URL}/random/10`, function(res, state){
+        if(state === "success") {
+            console.log(res);
+            for(const message of res.message) {
+                $(".fila2").append(`
+                                <div class="card col-sm-3 m-4">
+                                    <img src="${message}"/>
+                                </div>`)
+            }
+        }
+    });
+});
+
+$("#ocultarFotos").click(() => { 
+    $(".card").slideUp("fast");
+});

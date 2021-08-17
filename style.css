@@ -17,6 +17,17 @@
     height: 70%;
 }
 
+form {
+    width: 70%;
+    height: 70%;
+}
+
+.botonesForm{
+    display: block;
+    text-align: center;
+    margin: 1em;
+}
+
 .container p{
     font-size: 40px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -24,4 +35,55 @@
     text-align: center;
     color: #545455;
     background: #A9CCE3;
+}
+
+.clientes,
+p {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style:italic;
+    align-items: center;
+    text-transform: uppercase;
+    color: #043758;
+    margin: 2em;
+    text-align: center;
+}
+
+#lista2{
+    text-align: center;
+}
+
+#lista2 button {
+    font-size: 30px;
+    color: #043758;
+    margin: 1em;
+    pointer-events: auto;
+    border: none;
+    background: transparent;
+}
+#lista2 button:hover {
+    color: darkgray;
+    pointer-events: auto;
+}
+
+#footer {
+    background-color: #A9CCE3 ;
+    text-align: center;
+}
+
+#footer h4 {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style:italic;
+    align-items: center;
+    text-transform: uppercase;
+    color: #043758;
+}
+
+#footer i {
+    font-size: 30px;
+    color: #043758;
+}
+#footer i:hover{
+    color: darkgray;
 }
