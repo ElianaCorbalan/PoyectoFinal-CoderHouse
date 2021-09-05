@@ -1,100 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Icon-fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css"
-        integrity="sha512-OdEXQYCOldjqUEsuMKsZRj93Ht23QRlhIb8E/X0sbwZhme8eUw6g8q7AdxGJKakcBbv7+/PX0Gc2btf7Ru8cZA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <title>Pets Shop</title>
 </head>
+<body id="bodyLogin">
+        <main>
+            <div class="contenedor__todo">
+                <div class="caja__trasera">
+                    <div class="caja__trasera-login">
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <p>Inicia sesión para entrar en la página</p>
+                        <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                    </div>
+                    <div class="caja__trasera-register">
+                        <h3>¿Aún no tienes una cuenta?</h3>
+                        <p>Regístrate para que puedas iniciar sesión</p>
+                        <button id="btn__registrarse">Registrarse</button>
+                    </div>
+                </div>
 
-<body>
-    <!-- Seccion para agregar turnos -->
-    <h1 id='titulo' class="mt-3 text-center">Veterinaria Pupy</h1>
-    <div id="banner" class="container">
-        <img src="./img/banner.png" alt="banner">
-    </div>
-    <div class="container">
-        <p class="lead justify-content-center">Ingresar clientes</p>
-        <form>
-            <label for="choose">Nombre</label>
-            <input id="propietario" type="text" required minlength="1" placeholder="Nombre del propietario"
-                class="form-control my-2">
-            <label for="choose">Mascota</label>
-            <input id="mascota" type="text" required minlength="1" placeholder="Nombre de la mascota"
-                class="form-control my-2">
-            <label for="choose">Consulta</label>
-            <input id="consulta" type="text" required minlength="1" placeholder="Datos de la consulta"
-                class="form-control my-2">
-            <button class="btn btn-info center" id='boton_agregar' type="submit">Agregar</button>
-        </form>
-    </div>
-    <!-- Tabla donde se muestras los pacientes agregados -->
-    <div class="container botonesForm">
-        <button class="btn btn-secondary center" id="mostrar">Mostrar tabla</button>
-        <button class="btn btn-secondary center" id="ocultar">Ocultar tabla</button>
-    </div>
-    <div class="container d-flex align-items-center mt-3 mb-3">
-        <table class="table mt-2 container table-striped table-hover" id="tabla">
-            <thead class="thead-inverse mt-2">
-                <tr>
-                    <th>Nombre del Propietario</th>
-                    <th>Mascota</th>
-                    <th>Consulta</th>
-                    <th>Fecha y hora</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="tabla-datos">
+                <!--Formulario de Login y registro-->
+                <div class="contenedor__login-register">
+                    <!--Login-->
+                    <form name="form" class="formulario__login">
+                        <h2>Iniciar Sesión</h2>
+                        <input id="correoUsuarioR" type="email" required  placeholder="Correo Electronico">
+                        <input id="passwordUsuarioR" type="password" required placeholder="Contraseña">
+                        <button id="btn__ingresar">Entrar</button>
+                    </form>
 
-            </tbody>
-        </table>
-    </div>
-    <div class="clientes">
-    <p><strong>"Un veterinario no solo ama a los animales, LOS CUIDA HASTA SILENCIAR UN DOLOR
-            MUDO que los humanos no podemos escuchar"</strong></p>
-    </div>
-    <div id="lista2">
-        <button id="mostrarFotos" class="fas fa-images">Ver fotos</button>
-        <button id="ocultarFotos" class="far fa-eye-slash">Ocultar</button>
-        <div class="row justify-content-center fila2">
-        </div>
-    </div>
-    <footer>
-        <div id="footer" class="my-4">
-            <h4>Seguinos en redes sociales!</h4>
-            <a href=""><i class="fab fa-facebook-square p-2"></i></a>
-            <a href=""><i class="fab fa-instagram-square p-2"></i></a>
-        </div>
-    </footer>
-    <!-- Scrips js-Bootstrap- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                    <!--Register-->
+                    <form action="" class="formulario__register">
+                        <h2>Registrarse</h2>
+                        <input id="nombreUsuarioN" type="text" required placeholder="Nombre completo">
+                        <input id="correoUsuarioN" type="email" required placeholder="Correo Electronico">
+                        <input id="UsuarioN" type="text" required placeholder="Usuario">
+                        <input id="contrasennaUsuarioN" required type="password" placeholder="Contraseña">
+                        <button id="btn__nuevoUsuario">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        import moment from 'moment';
-    </script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="index.js"></script>
+        </script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="assets/js/login.js"></script>
 </body>
-
 </html>

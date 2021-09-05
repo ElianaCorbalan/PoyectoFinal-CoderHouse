@@ -1,13 +1,15 @@
 const URL = "https://dog.ceo/api/breeds/image"
 
 class Turno {
-    constructor(propietario, mascota, consulta, date) {
+    constructor(propietario,numero, mascota, consulta, date) {
         this.propietario = propietario;
+        this.numero = numero;
         this.mascota = mascota;
         this.consulta = consulta;
         this.date = date
     }
 }
+//FUNCIONES
 
 //Funcion para cargar los datos cacheados desde el inicio
 function actualizarTabla() {
@@ -20,6 +22,7 @@ function actualizarTabla() {
         listadoTurnos.forEach(turno => {
             let turnoHTML = `<tr>
                         <td>${turno.propietario}</td>
+                        <td>${turno.numero}</td>
                         <td>${turno.mascota}</td>
                         <td>${turno.consulta}</td>
                         <td>${turno.date}</td>
@@ -37,7 +40,7 @@ function guardar(e) {
     let listadoTurnos = JSON.parse(localStorage.getItem('turnos'))
     // si no encuentra el elemento en cache te inicializa el array vacio
     if (listadoTurnos == null) listadoTurnos = []
-    let turno = new Turno($("#propietario").val(), $("#mascota").val(), $("#consulta").val(), moment().format("DD/MM/YY hh:mm"));
+    let turno = new Turno($("#propietario").val(), parseInt($("#numero").val()), $("#mascota").val(), $("#consulta").val(), moment().format("DD/MM/YY hh:mm"));
     listadoTurnos.push(turno);
     localStorage.setItem('turnos', JSON.stringify(listadoTurnos));
     actualizarTabla();
@@ -56,7 +59,7 @@ function eliminar(index) {
 
 //Guardar al hacer click 
 $("#boton_agregar").click((e) => {
-    if ($("#propietario").val() != "" && $("#mascota").val() != "" && $("#consulta").val() != "") {
+    if ($("#propietario").val() != "" && $("#numero").val() != "" && $("#mascota").val() != "" && $("#consulta").val() != "") {
         swal("Excelente!", "Agregaste un nuevo cliente!", "success");
         guardar(e)
     }
@@ -75,17 +78,13 @@ $(document).ready(()=>{
 });
 
 $("tr").on("mouseover", function(){
-    $(this).css("background-color", "#A9CCE3");
+    $(this).css("background-color", "#BEFBF3 ");
 })
 $("tr").on("mouseleave", function(){
-    $(this).css("background-color", "#EBF5FB");
+    $(this).css("background-color", "#A9DFBF");
 })
 
-$("#titulo").css("color", "#2E86C1")
-    .slideUp(0)
-    .delay(1000)  
-    .slideDown(2000)
-    
+
 //////AJAX///////
 $("#mostrarFotos").click(()=> {
     console.log("entro2")
@@ -94,7 +93,7 @@ $("#mostrarFotos").click(()=> {
             console.log(res);
             for(const message of res.message) {
                 $(".fila2").append(`
-                                <div class="card col-sm-3 m-4">
+                                <div class="images col-sm-3 m-4">
                                     <img src="${message}"/>
                                 </div>`)
             }
@@ -103,5 +102,5 @@ $("#mostrarFotos").click(()=> {
 });
 
 $("#ocultarFotos").click(() => { 
-    $(".card").slideUp("fast");
+    $(".images").slideUp("fast");
 });
